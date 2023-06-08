@@ -21,7 +21,7 @@
 
 ~~~php
 
-    <?php
+<?php
     $servidor = "localhost";
     $usuario  = "root";
     $senha    = "";
@@ -33,5 +33,6 @@
         echo "<p>Erro ao tentar conectar</p>";
         echo $e->getMessage();
     }
-    ?>
+?>
+
 ~~~
