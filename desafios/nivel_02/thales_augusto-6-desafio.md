@@ -17,22 +17,20 @@
 ?>
 ~~~
 
-###Também quis confirmar pra ver se realmente foi conectado:
+###Também quis confirmar pra ver se realmente foi conectado, então fiz um index.php:
 
 ~~~php
 
-<?php
-    $servidor = "localhost";
-    $usuario  = "root";
-    $senha    = "";
-    $banco    = "ex.6";
+<?php 
+    require "./banco-dados.php";
 
-    try {
-        $pdo = new PDO("mysql:host={$servidor};dbname={$banco};port=3306;charset=utf8;",$usuario,$senha);
-    } catch (Exception $e) {
-        echo "<p>Erro ao tentar conectar</p>";
-        echo $e->getMessage();
-    }
+    $sql = "select frase from mensagem";
+    $consulta = $pdo->prepare($sql);
+    $consulta->execute();
+
+    $dados = $consulta->fetch(PDO::FETCH_OBJ);
+
+    var_dump($dados);
 ?>
 
 ~~~
